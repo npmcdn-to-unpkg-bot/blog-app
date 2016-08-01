@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
-import Index from './components/index';
+import Index from './containers/index';
 import New from './containers/new';
-import Show from './components/show';
+import Show from './containers/show';
 
 export default(
   <Route path="/" component={App}>

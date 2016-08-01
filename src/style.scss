@@ -21,6 +21,22 @@ body {
   padding: 25px;
 }
 
+#showPosts {
+  margin-top: 25px;
+}
+
+.listItem {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 75px;
+  background-color: white;
+  border-color: lightblue;
+  border-style: solid;
+  border-width: thin;
+  padding: 10px;
+}
+
 h1 h2 h3 {
   margin: 15px;
   padding: 5px;
