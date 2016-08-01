@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
 import Index from './components/index';
-import New from './components/new';
+import New from './containers/new';
 import Show from './components/show';
 
 export default(

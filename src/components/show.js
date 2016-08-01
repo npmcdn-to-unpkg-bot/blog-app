@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PostDisplay from './postDisplay';
 
 // example class based component (smart component)
 class Show extends Component {
@@ -12,7 +13,7 @@ class Show extends Component {
   render() {
     return (
       <div>
-        Show
+        <PostDisplay title="test title" tags="tags" content="# test content" />
       </div>
     );
   }

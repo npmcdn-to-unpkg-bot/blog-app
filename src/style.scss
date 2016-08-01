@@ -1,7 +1,44 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Avenir", sans-serif;
   color: rgb(10%, 10%, 10%);
   background: darken(white, 10%);
   margin: 50px;
   font-size: 16px;
+}
+
+#myNav {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  background-color: white;
+  padding: 25px;
+}
+
+#buttons {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+h1 h2 h3 {
+  margin: 15px;
+  padding: 5px;
+}
+
+input {
+  border-radius: 5px;
+  border-color: lightblue;
+  border-style: solid;
+  border-width: thin;
+  width: 98%;
+  height: 50px;
+  margin: 10px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+form a {
+  margin: 10px;
+  margin-top: 50px;
 }
