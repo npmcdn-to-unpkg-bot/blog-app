@@ -15,28 +15,31 @@ class Index extends Component {
 
   componentWillMount() {
     this.props.fetchPosts();
+
+    console.log('will mount');
   }
 
   render() {
-    if (!this.props.all || this.props.all.size === 0) {
+    console.log('rendering');
+    console.log(this.props.all);
+    if (!this.props.all) {
       return (
-        <div>
-          <h1>No Posts Yet</h1>
-        </div>
+        <p>No Posts</p>
       );
-    }
+    } else {
+      let posts = this.props.all.map((post) => {
+        return (<PostListItem post={post} key={post.id} />);
+      });
 
-    let posts = this.props.all.map((post) => {
-      return (<PostListItem post={post} key={post.id} />);
-    });
-
-    return (
-      <div id="showPosts">
-        {posts}
-      </div>
+      return (
+        <div id="showPosts">
+          {posts}
+        </div>
     );
+    }
   }
 }
+
 
 const mapStateToProps = (state) => (
   {

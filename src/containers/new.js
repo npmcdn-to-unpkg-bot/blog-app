@@ -14,6 +14,7 @@ class New extends Component {
   }
 
   create(e) {
+    // don't want the button to refresh the page
     e.preventDefault();
     const fields = {
       title: document.getElementById('title').value,
