@@ -22,7 +22,7 @@ class Index extends Component {
   render() {
     console.log('rendering');
     console.log(this.props.all);
-    if (!this.props.all) {
+    if (!this.props.all || this.props.all.length === 0) {
       return (
         <p>No Posts</p>
       );

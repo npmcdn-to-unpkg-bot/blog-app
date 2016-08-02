@@ -15,8 +15,8 @@ class PostListItem extends Component {
   render() {
     return (
       <Link to={`/posts/${this.props.post.id}`} className="listItem">
-        <h1>{this.props.post.title}</h1>
-        <h1>{this.props.post.tags}</h1>
+        <h1 className="title">{this.props.post.title}</h1>
+        <h1 className="tags">{this.props.post.tags}</h1>
       </Link>
     );
   }

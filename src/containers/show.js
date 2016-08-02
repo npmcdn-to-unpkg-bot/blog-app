@@ -11,10 +11,11 @@ class Show extends Component {
 
     // init component state here
     this.state = {
-      title: ' ',
-      tags: ' ',
-      content: ' ',
+      title: '',
+      tags: '',
+      content: '',
       isEditingTitle: false,
+      isEditingTags: false,
       isEditingContent: false,
     };
 
@@ -28,6 +29,9 @@ class Show extends Component {
     this.toggleEditContent = this.toggleEditContent.bind(this);
     this.createMarkUp = this.createMarkUp.bind(this);
     this.renderMarkDown = this.renderMarkDown.bind(this);
+    this.tagsChange = this.tagsChange.bind(this);
+    this.displayTags = this.displayTags.bind(this);
+    this.toggleEditTags = this.toggleEditTags.bind(this);
   }
 
   componentWillMount() {
@@ -35,11 +39,24 @@ class Show extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.post.title);
+    const update = { title: '', content: '' };
+
+    if (nextProps.post.title === '') {
+      update.title = 'title';
+    } else {
+      update.title = nextProps.post.title;
+    }
+
+    if (nextProps.post.content === '') {
+      update.content = 'content';
+    } else {
+      update.content = nextProps.post.content;
+    }
+
     this.setState({
-      title: nextProps.post.title,
+      title: update.title,
       tags: nextProps.post.tags,
-      content: nextProps.post.content,
+      content: update.content,
     });
   }
 
@@ -74,11 +91,39 @@ class Show extends Component {
 
   displayTitle() {
     if (!this.state.isEditingTitle) {
-      return <h1 onClick={this.toggleEditTitle}>{this.state.title}</h1>;
+      return <h1 className="show" onClick={this.toggleEditTitle}>{this.state.title}</h1>;
     } else {
       return (
         <form onSubmit={this.toggleEditTitle}>
           <input onChange={this.titleChange} defaultValue={this.state.title} />
+          <h3 className="instruct">Press enter to save</h3>
+        </form>
+      );
+    }
+  }
+
+  tagsChange(e) {
+    this.setState({ tags: e.target.value });
+  }
+
+  toggleEditTags(e) {
+    e.preventDefault();
+    if (this.state.isEditingTags) {
+      console.log('update tags');
+      this.update();
+    }
+
+    this.setState({ isEditingTags: !this.state.isEditingTags });
+  }
+
+  displayTags() {
+    if (!this.state.isEditingTags) {
+      return <h3 className="show" onClick={this.toggleEditTags}>{this.state.tags}</h3>;
+    } else {
+      return (
+        <form onSubmit={this.toggleEditTags}>
+          <input onChange={this.tagsChange} defaultValue={this.state.tags} />
+          <h3 className="instruct">Press enter to save</h3>
         </form>
       );
     }
@@ -112,13 +157,13 @@ class Show extends Component {
       return (
         <div>
           <form id="content" onSubmit={this.toggleEditContent}>
-            <textarea onBlur={this.toggleEditContent} onChange={this.contentChange} defaultValue={this.state.content} />
-            <h3>Click outside the box to save</h3>
+            <textarea autoFocus className="show content-box" onBlur={this.toggleEditContent} onChange={this.contentChange} defaultValue={this.state.content} />
+            <h3 className="instruct">Click outside the box to save</h3>
           </form>
         </div>
     );
     } else {
-      return (<div dangerouslySetInnerHTML={this.createMarkUp()} onClick={this.toggleEditContent}></div>);
+      return (<div className="show" dangerouslySetInnerHTML={this.createMarkUp()} onClick={this.toggleEditContent}></div>);
     }
   }
 
@@ -130,7 +175,7 @@ class Show extends Component {
           <button onClick={this.cancel} >Cancel</button>
         </div>
         {this.displayTitle()}
-        <h3>{this.state.tags}</h3>
+        {this.displayTags()}
         {this.renderMarkDown()}
       </div>
     );
