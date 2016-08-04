@@ -39,12 +39,18 @@ class Show extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const update = { title: '', content: '' };
+    const update = { title: '', tags: '', content: '' };
 
     if (nextProps.post.title === '') {
       update.title = 'title';
     } else {
       update.title = nextProps.post.title;
+    }
+
+    if (nextProps.post.tags === '') {
+      update.tags = 'tags';
+    } else {
+      update.tags = nextProps.post.tags;
     }
 
     if (nextProps.post.content === '') {
@@ -55,7 +61,7 @@ class Show extends Component {
 
     this.setState({
       title: update.title,
-      tags: nextProps.post.tags,
+      tags: update.tags,
       content: update.content,
     });
   }

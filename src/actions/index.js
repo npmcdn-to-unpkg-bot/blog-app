@@ -15,7 +15,6 @@ export const ActionTypes = {
 
 export function fetchPosts() {
   return (dispatch) => {
-    console.log('fetching');
     axios.get(`${ROOT_URL}/posts${API_KEY}`).then(response => {
       dispatch({ type: ActionTypes.FETCH_POSTS, payload: { all: response.data } });
     }).catch(error => {
@@ -27,7 +26,6 @@ export function fetchPosts() {
 export function fetchPost(id) {
   return (dispatch) => {
     axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then(response => {
-      console.log(id);
       dispatch({ type: ActionTypes.FETCH_POST, payload: { post: response.data } });
     }).catch(error => {
       console.log('Error: could not fetch post');
@@ -36,7 +34,6 @@ export function fetchPost(id) {
 }
 
 export function createPost(props) {
-  console.log(props);
   return (dispatch) => {
     axios.post(`${ROOT_URL}/posts/${API_KEY}`, props).then(response => {
       browserHistory.push('/');
