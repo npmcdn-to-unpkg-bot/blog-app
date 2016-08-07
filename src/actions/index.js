@@ -1,8 +1,8 @@
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 
-const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
-const API_KEY = '?key=e_oberstein';
+const ROOT_URL = 'http://localhost:9090/api';
+const API_KEY = '';
 
 // keys for actiontypes
 export const ActionTypes = {
