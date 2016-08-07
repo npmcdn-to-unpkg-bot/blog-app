@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 
-const ROOT_URL = 'http://localhost:9090/api';
+const ROOT_URL = 'https://emma-blog-server.herokuapp.com/api';
 const API_KEY = '';
 
 // keys for actiontypes
