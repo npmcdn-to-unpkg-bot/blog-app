@@ -14,6 +14,7 @@ class Show extends Component {
       title: '',
       tags: '',
       content: '',
+      author: '',
       isEditingTitle: false,
       isEditingTags: false,
       isEditingContent: false,
@@ -63,6 +64,7 @@ class Show extends Component {
       title: update.title,
       tags: update.tags,
       content: update.content,
+      author: nextProps.post.author,
     });
   }
 
@@ -149,6 +151,7 @@ class Show extends Component {
       title: this.state.title,
       tags: this.state.tags,
       content: this.state.content,
+      author: this.state.author,
     };
     this.props.updatePost(this.props.params.id, post);
   }
@@ -181,6 +184,7 @@ class Show extends Component {
           <button onClick={this.cancel} >Cancel</button>
         </div>
         {this.displayTitle()}
+        <h2>by {this.state.author}</h2>
         {this.displayTags()}
         {this.renderMarkDown()}
       </div>

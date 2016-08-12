@@ -16,10 +16,12 @@ class New extends Component {
   create(e) {
     // don't want the button to refresh the page
     e.preventDefault();
+    console.log(this.props.user);
     const fields = {
       title: document.getElementById('title').value,
       content: document.getElementById('content').value,
       tags: document.getElementById('tags').value,
+      author: this.props.user,
     };
 
     console.log('creating');
@@ -42,4 +44,11 @@ class New extends Component {
   }
 }
 
-export default connect(null, { createPost })(New);
+// mapStateToProps
+const mapStateToProps = (state) => (
+  {
+    user: state.auth.user,
+  }
+);
+
+export default connect(mapStateToProps, { createPost })(New);
