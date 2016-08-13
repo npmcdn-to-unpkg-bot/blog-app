@@ -14,7 +14,6 @@ class Show extends Component {
       title: '',
       tags: '',
       content: '',
-      author: '',
       isEditingTitle: false,
       isEditingTags: false,
       isEditingContent: false,
@@ -64,7 +63,7 @@ class Show extends Component {
       title: update.title,
       tags: update.tags,
       content: update.content,
-      author: nextProps.post.author,
+      author: nextProps.post.author.email,
     });
   }
 
@@ -151,7 +150,6 @@ class Show extends Component {
       title: this.state.title,
       tags: this.state.tags,
       content: this.state.content,
-      author: this.state.author,
     };
     this.props.updatePost(this.props.params.id, post);
   }

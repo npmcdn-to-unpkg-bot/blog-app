@@ -32,7 +32,7 @@ class Signup extends Component {
     return (
       <div>
         <form>
-          <input type="text" id="newusername" placeholder="usename" /> <br />
+          <input type="text" id="newusername" placeholder="username" /> <br />
           <input type="text" id="newpassword" placeholder="password" /> <br />
           <button onClick={this.signUpUser}>Submit</button>
           <Link to="/signin">Sign In</Link>
