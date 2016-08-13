@@ -103,7 +103,6 @@ export function signupUser(email, password) {
       dispatch({ type: ActionTypes.AUTH_USER });
       localStorage.setItem('token', response.data.token);
       browserHistory.push('/');
-      console.log(response);
     }).catch(error => {
       localStorage.removeItem('token');
       dispatch(authError(`Sign Up Failed: ${error.response.data}`));
