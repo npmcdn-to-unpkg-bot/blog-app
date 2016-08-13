@@ -15,8 +15,6 @@ class Index extends Component {
 
   componentWillMount() {
     this.props.fetchPosts();
-
-    console.log('will mount');
   }
 
   render() {
