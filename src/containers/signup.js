@@ -25,13 +25,16 @@ class Signup extends Component {
   signUpUser(e) {
     e.preventDefault();
     console.log('signing up');
-    this.props.signupUser(document.getElementById('newusername').value, document.getElementById('newpassword').value);
+    this.props.signupUser(document.getElementById('newemail').value,
+      document.getElementById('newusername').value,
+      document.getElementById('newpassword').value);
   }
 
   render() {
     return (
       <div>
         <form>
+          <input type="text" id="newemail" placeholder="email" /> <br />
           <input type="text" id="newusername" placeholder="username" /> <br />
           <input type="text" id="newpassword" placeholder="password" /> <br />
           <button onClick={this.signUpUser}>Submit</button>

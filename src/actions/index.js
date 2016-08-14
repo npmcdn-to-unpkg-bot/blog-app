@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 
-const ROOT_URL = 'https://emma-blog-auth.herokuapp.com/api';
+const ROOT_URL = 'http://emma-blog-auth.herokuapp.com/api';
 const API_KEY = '';
 
 // keys for actiontypes
@@ -95,10 +95,10 @@ export function signinUser(email, password) {
 }
 
 
-export function signupUser(email, password) {
+export function signupUser(email, username, password) {
   // takes in an object with email and password (minimal user object)
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signup/`, { email, password }).
+    axios.post(`${ROOT_URL}/signup/`, { email, username, password }).
     then(response => {
       dispatch({ type: ActionTypes.AUTH_USER });
       localStorage.setItem('token', response.data.token);

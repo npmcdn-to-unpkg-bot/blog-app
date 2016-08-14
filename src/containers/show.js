@@ -63,7 +63,7 @@ class Show extends Component {
       title: update.title,
       tags: update.tags,
       content: update.content,
-      author: nextProps.post.author.email,
+      author: nextProps.post.author.username,
     });
   }
 
